@@ -43,6 +43,12 @@ operator<<(std::ostream& os, LogLevel level)
     return os << "DEBUG";
   case LogLevel::TRACE:
     return os << "TRACE";
+  case LogLevel::TEST:
+    return os << "TEST";
+  case LogLevel::TEST2:
+    return os << "TEST2";
+  case LogLevel::TEST3:
+    return os << "TEST3";
   case LogLevel::ALL:
     return os << "ALL";
   }
@@ -67,6 +73,12 @@ parseLogLevel(const std::string& s)
     return LogLevel::DEBUG;
   else if (s == "TRACE")
     return LogLevel::TRACE;
+  else if (s == "TEST")
+    return LogLevel::TEST;
+  else if (s == "TEST2")
+    return LogLevel::TEST2;
+  else if (s == "TEST3")
+    return LogLevel::TEST3;
   else if (s == "ALL")
     return LogLevel::ALL;
 

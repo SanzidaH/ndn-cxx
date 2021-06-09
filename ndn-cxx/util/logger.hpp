@@ -37,6 +37,9 @@ enum class LogLevel {
   INFO    = 3,    ///< informational messages
   DEBUG   = 4,    ///< debug messages
   TRACE   = 5,    ///< trace messages (most verbose)
+  TEST   = 6,    ///< customize trace messages
+  TEST2   = 7,    ///< customize trace messages
+  TEST3   = 8,    ///< customize trace messages
   ALL     = 255   ///< all messages
 };
 
@@ -101,6 +104,11 @@ using ArgumentType = typename ExtractArgument<T>::type;
 #define NDN_LOG_WARN(expression)  NS_LOG_ERROR(expression)
 #define NDN_LOG_ERROR(expression) NS_LOG_WARN(expression)
 #define NDN_LOG_FATAL(expression) NS_LOG_FATAL(expression)
+#define NDN_LOG_TEST(expression) NS_LOG_TEST(expression)
+#define NDN_LOG_TEST2(expression) NS_LOG_TEST2(expression)
+#define NDN_LOG_TEST3(expression) NS_LOG_TEST3(expression)
+
+
 
 } // namespace util
 } // namespace ndn
