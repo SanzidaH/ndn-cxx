@@ -119,6 +119,12 @@ Interest::wireEncode(EncodingImpl<TAG>& encoder) const
   }
 
   size_t totalLength = 0;
+/* 
+ if (getInputSize() >= 0) {
+      totalLength += prependNonNegativeIntegerBlock(encoder,
+                                                    tlv::InputSize,
+                                                    getInputSize());
+  }*/
 
   // ApplicationParameters and following elements (in reverse order)
   std::for_each(m_parameters.rbegin(), m_parameters.rend(), [&] (const Block& b) {

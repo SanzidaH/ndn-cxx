@@ -274,6 +274,13 @@ public: // element access
   {
     return !m_parameters.empty();
   }
+  Interest&
+  setInputSize(const uint32_t inputSz);
+
+  /** @brief Get value of the subscription field
+  */
+  const uint32_t
+  getInputSize() const;
 
   Block
   getApplicationParameters() const
@@ -398,7 +405,7 @@ private:
   mutable bool m_isCanBePrefixSet = false;
   bool m_canBePrefix = true;
   bool m_mustBeFresh = false;
-
+  uint32_t m_inputSize;
   // Stores the "Interest parameters", i.e., all maybe-unrecognized non-critical TLV
   // elements that appear at the end of the Interest, starting from ApplicationParameters.
   // If the Interest does not contain any ApplicationParameters TLV, this vector will

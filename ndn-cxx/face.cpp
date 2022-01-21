@@ -265,8 +265,17 @@ extractLpLocalFields(NetPkt& netPacket, const lp::Packet& lpPacket)
   addTagFromField<lp::IncomingFaceIdTag, lp::IncomingFaceIdField>(netPacket, lpPacket);
   addTagFromField<lp::CongestionMarkTag, lp::CongestionMarkField>(netPacket, lpPacket);
 
+  addTagFromField<lp::UtilInterestTag, lp::UtilInterestTagField>(netPacket, lpPacket);
+  addTagFromField<lp::UtilTag, lp::UtilTagField>(netPacket, lpPacket);
+  //addTagFromField<lp::GridTag, lp::GridTagField>(netPacket, lpPacket);
+  addTagFromField<lp::ReuseTag, lp::ReuseTagField>(netPacket, lpPacket);
+  addTagFromField<lp::FakeInterestTag, lp::FakeInterestTagField>(netPacket, lpPacket);
+
   if (lpPacket.has<lp::HopCountTagField>()) {
     netPacket.setTag(make_shared<lp::HopCountTag>(lpPacket.get<lp::HopCountTagField>() + 1));
+  }
+  if (lpPacket.has<lp::HopLimitTagField>()) {
+    netPacket.setTag(make_shared<lp::HopLimitTag>(lpPacket.get<lp::HopLimitTagField>() - 1));
   }
 }
 

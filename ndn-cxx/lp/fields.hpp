@@ -130,12 +130,17 @@ typedef FieldDecl<field_location_tags::Header,
                   tlv::GeoTag> GeoTagField;
 BOOST_CONCEPT_ASSERT((Field<GeoTagField>));
 
+
 typedef FieldDecl<field_location_tags::Header,
                   GridHeader,
                   tlv::GridTag> GridTagField;
 BOOST_CONCEPT_ASSERT((Field<GridTagField>));
 
 
+typedef FieldDecl<field_location_tags::Header,
+                  uint64_t,
+                  tlv::HopLimitTag> HopLimitTagField;
+BOOST_CONCEPT_ASSERT((Field<HopLimitTagField>));
 
 /** \brief Declare the Fragment field.
  *
@@ -187,14 +192,14 @@ typedef boost::mpl::set<
   NonDiscoveryField,
   PrefixAnnouncementField,
   HopCountTagField,
-  FakeInterestTagField,
-  GridTagField,
-  GeoTagField
-  > FieldSet;
-
-typedef boost::mpl::set<
   UtilTagField,
-  UtilInterestTagField
+  UtilInterestTagField,
+  HopLimitTagField
+  > FieldSet;
+  
+  typedef boost::mpl::set<
+  GridTagField, 
+  GeoTagField
   > FieldSet2;
 
 
